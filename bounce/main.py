@@ -9,6 +9,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 
 class Idea(ndb.Model):
     text = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
     details = ndb.StringProperty()
     references = ndb.StringProperty()
 
