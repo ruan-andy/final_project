@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <title>{{post.title}}</title>
 <style>
-body {
-  text-align: center;
-}
+  #comment {
+    background-color: lightblue;
+    padding: 8px;
+    border: 1px solid black;
+    display: inline-block;
+  }
+  #post {
+      background-color: lightgray;
+      padding: 8px;
+      display: inline-block;
+      border: 3px solid green;
+    }
+
+  #commentbox {
+   resize: none;
+ }
+ body {
+   text-align: center;
+ }
 </style>
 <body>
+<div id="post">
+<head><h1>{{post.title}}</h1></head>
 
-  <form  method = "post" action = "">
 
-    <input name = "title" placeholder="Title goes here">
+<p>
+  {{post.text}}
+</p>
 
-    <br>
+<br>
 
-    <textarea name = "idea" placeholder="What is your idea?"></textarea>
-
-    <button>Post it</button>
-
-  </form>
+<div class = "date">{{post.date}}</div> </div>
+<br>
+<br>
+<div id="comment">
+{% for comment in comments%}
+  {{comment.name}} : {{comment.date}} <br>
+  {{comment.text}} <br><br>
+{% endfor %}
+</div>
+<br>
+<h2>Leave a Comment</h2>
+<form action="{{ post.url() }}" method="post">
+  <textarea id="commentbox" name="comment"></textarea><br>
+  <button>Send your comment</button>
+</form>
 </body>
