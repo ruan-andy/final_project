@@ -12,7 +12,7 @@ class Idea(ndb.Model):
     details = ndb.StringProperty()
     references = ndb.StringProperty()
 
-class MainHandler(webapp2.RequestHandler):
+class IdeaHandler(webapp2.RequestHandler):
     def get(self):
 
         ideas = Idea.query().order(Idea.idea).fetch()
