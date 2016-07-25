@@ -12,6 +12,9 @@ class Idea(ndb.Model):
     details = ndb.StringProperty()
     references = ndb.StringProperty()
 
+class HomeHandler
+    
+
 class IdeaHandler(webapp2.RequestHandler):
     def get(self):
 
@@ -38,5 +41,5 @@ class IdeaHandler(webapp2.RequestHandler):
         self.redirect('/')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', HomeHandler)
 ], debug=True)
