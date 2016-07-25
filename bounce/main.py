@@ -12,6 +12,8 @@ class Idea(ndb.Model):
     date = ndb.DateTimeProperty(auto_now_add=True)
     details = ndb.StringProperty()
     references = ndb.StringProperty()
+    def url(self):
+        return '/idea?key=' + self.key.urlsafe()
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
