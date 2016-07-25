@@ -12,8 +12,15 @@ class Idea(ndb.Model):
     details = ndb.StringProperty()
     references = ndb.StringProperty()
 
-class HomeHandler
-    
+class HomeHandler:
+    def get(self):
+        template = jinja_environment.get_template('home.html')
+        self.response.write(template.render())
+
+class CreateHandler:
+    def get(self)
+        template = jinja_environment.get_template('create.html')
+        self.response.write(template.render())
 
 class IdeaHandler(webapp2.RequestHandler):
     def get(self):
@@ -35,11 +42,13 @@ class IdeaHandler(webapp2.RequestHandler):
 
         ideas = Idea.query().fetch()
         template_values = {'ideas':ideas}
-        template = jinja_environment.get_template('board.html')
+        template = jinja_environment.get_template('idea.html')
         self.response.write(template.render(template_values))
 
         self.redirect('/')
 
 app = webapp2.WSGIApplication([
-    ('/', HomeHandler)
+    ('/', HomeHandler),
+    ('/create', CreateHandler),
+    ('/idea', IdeaHandler)
 ], debug=True)
