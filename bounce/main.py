@@ -18,7 +18,7 @@ class MainHandler(webapp2.RequestHandler):
         ideas = Idea.query().order(Idea.idea).fetch()
 
         template_values = {'ideas':ideas}
-        template = jinja_environment.get_template('board.html')
+        template = jinja_environment.get_template('idea.html')
         self.response.write(template.render(template_values))
 
     def post(self):
