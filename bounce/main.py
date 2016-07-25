@@ -12,12 +12,12 @@ class Idea(ndb.Model):
     details = ndb.StringProperty()
     references = ndb.StringProperty()
 
-class HomeHandler:
+class HomeHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
 
-class CreateHandler:
+class CreateHandler(webapp2.RequestHandler):
     def get(self)
         template = jinja_environment.get_template('create.html')
         self.response.write(template.render())
