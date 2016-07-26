@@ -10,10 +10,8 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 
 class Tree(ndb.Model):
     title = ndb.StringProperty()
-    text = ndb.StringProperty()
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
-    reference = ndb.StringProperty() 
 
 class Idea(ndb.Model):
     title = ndb.StringProperty()
