@@ -29,9 +29,22 @@
     <br>
     <br>
 
-    <h1>{{idea.title}}</h1>
+    <section class="moments">
+    <div class="moment" id="mainIdea">
+    <center>
+      <h2>{{idea.title}}</h2>
+    </center>
+    <p>
+      {{idea.date}}
+      <br>
+      {{idea.name}}
+      <br>
+      {{idea.text}}
+    </p>
+    </div>
 
 
+    <div class="moment">
       <h2>Leave a comment</h2>
 
       <form action='/idea' method='post'>
@@ -59,6 +72,10 @@
           </div>
         </div>
       {% endfor %}
+    </div>
+    </section>
+
+    <section class="clear"></section>
 
   </body>
 </html>

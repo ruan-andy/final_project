@@ -15,6 +15,29 @@ h2 {
   color: white;
 }
 
+p {
+  text-align: center;
+  font-family: "andale mono";
+  color: #86A1A7;
+}
+
+.moments div {
+
+}
+
+.moment {
+  float: left;
+}
+
+#mainIdea {
+  margin-left: 300px;
+  margin-right: 200px;
+}
+
+section .clear {
+  clear: both;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
