@@ -24,6 +24,14 @@ class Comment(ndb.Model):
     date = ndb.DateTimeProperty(auto_now_add=True)
     idea_key = ndb.KeyProperty(kind=Idea)
 
+class UserHandler(webapp2.RequestHandler):
+    def get(self):
+        name = users.get_current_user().email()
+        ideas = Idea.query(Idea.name == name).fetch()
+        template_values = {'ideas': ideas}
+        template = jinja_environment.get_template('list.html')
+        self.response.write(template.render(template_values))
+
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -104,5 +112,6 @@ app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
-    ('/list', ListHandler)
+    ('/list', ListHandler),
+    ('/ulist', UserHandler)
 ], debug=True)
