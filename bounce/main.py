@@ -17,6 +17,12 @@ class Idea(ndb.Model):
     def url(self):
         return '/idea?key=' + self.key.urlsafe()
 
+class Comment(ndb.Model):
+    name = ndb.StringProperty()
+    text = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
+    #post_key = ndb.KeyProperty(kind = Post)
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -36,23 +42,21 @@ class HomeHandler(webapp2.RequestHandler):
 
 class IdeaHandler(webapp2.RequestHandler):
     def get(self):
+        ideas = Idea.query().fetch()
+        template_values = {'ideas':ideas}
+
         template = jinja_environment.get_template('idea.html')
         self.response.write(template.render())
 
     def post(self):
         # get request
-        name = self.request.get('name')
+        name = users.get_current_user().email()
         text = self.request.get('text')
         # logic
-        idea = Idea(name=name, text=text, )
-        idea.put()
+        comment = Comment(name=name, text=text, )
+        comment.put()
         # render
         self.redirect('/idea')
-
-        ideas = Idea.query().fetch()
-        template_values = {'ideas':ideas}
-        template = jinja_environment.get_template('createidea.html')
-        self.response.write(template.render(template_values))
 
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
