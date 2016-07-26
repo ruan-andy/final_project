@@ -62,7 +62,17 @@ li.dropdown1 {
   display: block;
 }
 
-textarea {
+.block textarea {
+  width: 350px;
+  height: 25px;
+}
+
+.block1 textarea {
+  width: 400px;
+  height: 150px;
+}
+
+.block2 textarea {
   width: 400px;
   height: 150px;
 }
@@ -98,7 +108,7 @@ button {
 
 .block1 {
   float: left;
-  margin-left: 200px;
+  margin-left: 250px;
   margin-right: 100px;
 }
 
