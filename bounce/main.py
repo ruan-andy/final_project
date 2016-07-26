@@ -56,7 +56,6 @@ class IdeaHandler(webapp2.RequestHandler):
 
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
-
         #ideas = Idea.query().order(Idea.idea).fetch()
 
         #template_values = {'ideas':ideas}
