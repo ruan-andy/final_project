@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<title>{{post.title}}</title>
-<style>
-  #comment {
-    background-color: lightblue;
-    padding: 8px;
-    border: 1px solid black;
-    display: inline-block;
-  }
-  #post {
-      background-color: lightgray;
-      padding: 8px;
-      display: inline-block;
-      border: 3px solid green;
-    }
- 
-  #commentbox {
-   resize: none;
- }
- body {
-   text-align: center;
- }
-</style>
-<body>
-<div id="post">
-<head><h1>{{post.title}}</h1></head>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Idea Page</title>
+    <link rel="stylesheet" href="stylesheets/idea.css">
+  </head>
+  <body>
+
+    <center>
+      <h1>
+        BRANCH
+      </h1>
+    </center>
+
+    <ul>
+      <li><a class="home" href="/">Home</a></li>
+      <li><a class="create" href="/create">New Ideas</a></li>
+      <li class="dropdown1">
+        <a href="/idea" class="dropbtn1">Your Current Ideas</a>
+        <div class="dropdown-content1">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li>
+    </ul>
 
 
-<p>
-  {{post.text}}
-</p>
+      <h2>Leave a comment</h2>
+      <form action'' method='idea'>
+        <input name="name" placeholder='Name'>
+        <br>
+        <br>
+        <textarea name='text' placeholder="Say what's on your mind..." ></textarea>
+        &nbsp
+        <button>Let 'Em Know</button>
+        <br>
+        <br>
+      </div>
+      {% for comment in comments %}
+        <div class="dialogbox">
+          <div class="body">
+            <span class="tip tip-right"></span>
+            <div class="message">
+                <article>
+                  {{comment.name}}:
+                  <br>
+                  {{comment.text}}
+                  <div class='date'>({{comment.date}})</date>
+                  <br>
+                  <br>
+                </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
 
-<br>
-
-<div class = "date">{{post.date}}</div> </div>
-<br>
-<br>
-<div id="comment">
-{% for comment in comments%}
-  {{comment.name}} : {{comment.date}} <br>
-  {{comment.text}} <br><br>
-{% endfor %}
-</div>
-<br>
-<h2>Leave a Comment</h2>
-<form action="{{ post.url() }}" method="post">
-  <textarea id="commentbox" name="comment"></textarea><br>
-  <button>Send your comment</button>
-</form>
-</body>
+  </body>
+</html>
