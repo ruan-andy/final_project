@@ -21,7 +21,7 @@ class Comment(ndb.Model):
     name = ndb.StringProperty()
     text = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
-    post_key = ndb.KeyProperty(kind=Post)
+    post_key = ndb.KeyProperty(kind=Idea)
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
