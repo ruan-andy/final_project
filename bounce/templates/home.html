@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Home Page</title>
     <link rel="stylesheet" href="stylesheets/home.css">
+    <!-- <script src="jquery.js"></script>
+    <script> $(function(){ $("#includedContent").load("taskbar.html");}); </script>  -->
 
   </head>
   <body>
@@ -12,23 +14,10 @@
         BRANCH
       </h1>
     </center>
+    
+    {% include 'taskbar.html' %}
 
-    <ul>
-      <li><a class="home" href="/">Home</a></li>
-      <li><a class="create" href="/create">Create Idea</a></li>
-      <li class="dropdown1">
-        <a href="/ulist" class="dropbtn1">Your Current Ideas</a>
-
-        <!-- <div class="dropdown-content1">
-          <a href="/idea">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-         -->
-      <li><a class="list" href="/list">Other Ideas</a></li>
-      </li>
-      <li class="clear"></li>
-    </ul>
+    <!-- It was here -->
 
     <br>
     <br>
