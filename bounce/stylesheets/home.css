@@ -1,6 +1,15 @@
 body {
-  background-image: url("http://www.walldevil.com/wallpapers/a78/forest-polygon-tree.jpg");
+  background-image: url("https://wallpaperscraft.com/image/background_faded_stains_light_47125_3840x2400.jpg");
 }
+
+/* Give the body a width */
+
+body {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 h1 {
   font-family: papyrus;
 }
@@ -13,12 +22,14 @@ h1 {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  font-family: papyrus;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-right: 50px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -51,4 +62,50 @@ h1 {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3E5459;
+}
+
+/* Make the nav take up the whole body width, and give it some top and bottom margin space */
+
+nav div {
+  width: 100%;
+  margin: 20px 0;
+  font-family: papyrus;
+}
+
+/* Make the list of links take up the whole width of the nav */
+
+nav div {
+  width: 100%;
+}
+
+nav div {
+
+  width: 20%; }
+
+nav div a {
+  display: block;
+  width: 100%;
+}
+
+nav div {
+  width: 100%; /* from above */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav div {
+  width: 100%; /* from above */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav div {
+  width: 20%; /* from above */
+  float: left;
+}
+
+nav div a{
+  text-decoration: none;
 }
