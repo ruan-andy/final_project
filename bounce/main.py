@@ -11,6 +11,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 class Idea(ndb.Model):
     name = ndb.StringProperty()
     text = ndb.StringProperty()
+    title = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     reference = ndb.StringProperty()
     def url(self):
