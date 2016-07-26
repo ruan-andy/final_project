@@ -3,8 +3,9 @@ body {
 }
 
 h1 {
-  font-family: "lucida grande";
-  font-size: 100px;
+  font-family: "andale mono";
+  font-style: normal;
+  font-size: 200px;
   color: white;
   margin: 20px;
 }
@@ -27,7 +28,7 @@ li a, .home, .create, .dropbtn1 {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "lucida grande";
+  font-family: "andale mono";
 }
 
 li a:hover, .dropdown1:hover .dropbtn1 {
@@ -79,26 +80,26 @@ li.dropdown1 {
 
 ::-webkit-input-placeholder {
    font-size: 15px;
-   font-family: "lucida grande";
+   font-family: "andale mono";
 }
 
 :-moz-placeholder { /* Firefox 18- */
    font-size: 15px;
-   font-family: "lucida grande";
+   font-family: "andale mono";
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    font-size: 15px;
-   font-family: "lucida grande";
+   font-family: "andale mono";
 }
 
 :-ms-input-placeholder {
    font-size: 15px;
-   font-family: "lucida grande";
+   font-family: "andale mono";
 }
 
 button {
-  font-family: "lucida grande";
+  font-family: "andale mono";
   width: 100px;
 }
 
