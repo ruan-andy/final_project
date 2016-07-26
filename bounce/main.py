@@ -92,7 +92,6 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect('/')
 
-
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', CreateHandler),
