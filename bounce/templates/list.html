@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="stylesheets/home.css">
-
+    <title>Idea Page</title>
+    <link rel="stylesheet" href="stylesheets/idea.css">
   </head>
   <body>
+
     <center>
       <h1>
         BRANCH
@@ -19,21 +19,17 @@
       <li class="dropdown1">
         <a href="/idea" class="dropbtn1">Your Current Ideas</a>
         <div class="dropdown-content1">
-          <a href="/idea">Link 1</a>
+          <a href="#">Link 1</a>
           <a href="#">Link 2</a>
           <a href="#">Link 3</a>
         </div>
-      <li><a class="list" href="/list">Other Ideas</a></li>
       </li>
-      <li class="clear"></li>
     </ul>
 
     <br>
     <br>
 
-    <div class="moments">
-      <img src="http://www.clker.com/cliparts/2/0/0/9/1197089211475574592Chrisdesign_Tree_silhouettes_5.svg.hi.png">
-    </div>
 
-  </body>
-</html>
+{% for idea in ideas %}
+  <b><a href="{{idea.url()}}">{{idea.title}}</a></b><br>
+{% endfor %}
