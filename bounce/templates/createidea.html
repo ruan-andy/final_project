@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<title>Create Idea</title>
-<style>
-body {
-  text-align: center;
-}
-</style>
-<body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Creat Idea Page</title>
+    <link rel="stylesheet" href="stylesheets/createidea.css">
+  </head>
+  <body>
 
-  <form  method = "post" action = "">
+    <center>
+      <h1>
+        BRANCH
+      </h1>
+    </center>
 
-    <input name = "title" placeholder="Title goes here">
+    <ul>
+      <li><a class="home" href="/">Home</a></li>
+      <li><a class="create" href="/create">New Ideas</a></li>
+      <li class="dropdown1">
+        <a href="/idea" class="dropbtn1">Your Current Ideas</a>
+        <div class="dropdown-content1">
+          <a href="/idea">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li>
+    </ul>
 
     <br>
-
-    <textarea name = "text" placeholder="What is your idea?"></textarea>
-
     <br>
 
-    <textarea name = "reference" placeholder="References go here"></textarea>
+    <form  method = "post" action = "">
+      <input name = "title" placeholder="Title goes here">
+      <br>
+      <br>
+      <textarea name = "text" placeholder="What is your idea?"></textarea>
+      <br>
+      <br>
+      <textarea name = "reference" placeholder="References go here"></textarea>
+      &nbsp
+      <button>Post it</button>
+    </form>
 
-    <button>Post it</button>
-
-  </form>
-</body>
+  </body>
+</html>
