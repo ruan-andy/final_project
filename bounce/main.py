@@ -9,9 +9,9 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
 class Idea(ndb.Model):
-    name = ndb.StringProperty()
-    text = ndb.StringProperty()
     title = ndb.StringProperty()
+    text = ndb.StringProperty()
+    name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     reference = ndb.StringProperty()
     def url(self):
@@ -22,7 +22,7 @@ class Comment(ndb.Model):
     name = ndb.StringProperty()
     text = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
-    post_key = ndb.KeyProperty(kind=Idea)
+    idea_key = ndb.KeyProperty(kind=Idea)
 
 
 class HomeHandler(webapp2.RequestHandler):
@@ -49,11 +49,11 @@ class IdeaHandler(webapp2.RequestHandler):
         urlsafe_key = self.request.get('key')
         #logic
         key = ndb.Key(urlsafe = urlsafe_key)
-        post = key.get()
-        comments = Comment.query(Comment.post_key == post.key).order(Comment.date).fetch()
+        idea = key.get()
+        comments = Comment.query(Comment.idea_key == idea.key).order(Comment.date).fetch()
         # render
-        template_values = {'post': post, 'comments': comments}
-        template = jinja_environment.get_template('post.html')
+        template_values = {'idea': idea, 'comments': comments}
+        template = jinja_environment.get_template('idea.html')
         self.response.write(template.render(template_values))
 
 
@@ -61,12 +61,12 @@ class IdeaHandler(webapp2.RequestHandler):
         # get request
         name = users.get_current_user().email()
         text = self.request.get('text')
-        post_key_urlsafe = self.request.get('key')
+        idea_key_urlsafe = self.request.get('key')
         # logic
-        post_key = ndb.Key(urlsafe=post_key_urlsafe)
-        post = post_key.get()
+        idea_key = ndb.Key(urlsafe=idea_key_urlsafe)
+        idea = idea_key.get()
 
-        comment = Comment(name=name, text=text, post_key=post.key)
+        comment = Comment(name=name, text=text, idea_key=idea.key)
         comment.put()
         # render
         self.redirect('/idea')
@@ -86,7 +86,7 @@ class CreateHandler(webapp2.RequestHandler):
         reference = self.request.get('reference')
         name = users.get_current_user().email()
 
-        new_idea = Idea(title=title, text=text, refernece = reference)
+        new_idea = Idea(title=title, text=text, name=name, reference=reference)
 
         new_idea.put()
 
