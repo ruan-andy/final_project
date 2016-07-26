@@ -92,8 +92,17 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect('/')
 
+class ListHandler(webapp2.RequestHandler):
+    def get(self):
+        ideas = Idea.query().fetch()
+        template_values = {'ideas': ideas}
+        template = jinja_environment.get_template('list.html')
+        self.response.write(template.render(template_values))
+
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', CreateHandler),
-    ('/idea', IdeaHandler)
+    ('/idea', IdeaHandler),
+    ('/list', ListHandler)
 ], debug=True)
