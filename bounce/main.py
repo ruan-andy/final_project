@@ -8,6 +8,13 @@ import logging
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
+class Tree(ndb.Model):
+    title = ndb.StringProperty()
+    text = ndb.StringProperty()
+    name = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
+    reference = ndb.StringProperty() 
+
 class Idea(ndb.Model):
     title = ndb.StringProperty()
     text = ndb.StringProperty()
