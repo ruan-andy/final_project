@@ -10,6 +10,22 @@ h1 {
   margin: 20px;
 }
 
+h2 {
+  font-family: "andale mono";
+  font-style: normal;
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: "andale mono";
+  font-style: normal;
+  color: white;
+  text-align: center;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
