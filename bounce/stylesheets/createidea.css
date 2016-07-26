@@ -61,3 +61,52 @@ li.dropdown1 {
 .dropdown1:hover .dropdown-content1 {
   display: block;
 }
+
+textarea {
+  width: 400px;
+  height: 150px;
+}
+
+::-webkit-input-placeholder {
+   font-size: 15px;
+   font-family: "lucida grande";
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   font-size: 15px;
+   font-family: "lucida grande";
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   font-size: 15px;
+   font-family: "lucida grande";
+}
+
+:-ms-input-placeholder {
+   font-size: 15px;
+   font-family: "lucida grande";
+}
+
+button {
+  font-family: "lucida grande";
+  width: 100px;
+}
+
+.block1, .block2 div {
+
+}
+
+.block1 {
+  float: left;
+  margin-left: 200px;
+  margin-right: 100px;
+}
+
+.block2 {
+  float:left;
+  margin-left:;
+}
+
+div .clear {
+  clear: both;
+}
