@@ -35,11 +35,11 @@ class IdeaHandler(webapp2.RequestHandler):
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
 
-        ideas = Idea.query().order(Idea.idea).fetch()
+        #ideas = Idea.query().order(Idea.idea).fetch()
 
-        template_values = {'ideas':ideas}
-        template = jinja_environment.get_template('idea.html')
-        self.response.write(template.render(template_values))
+        #template_values = {'ideas':ideas}
+        template = jinja_environment.get_template('createidea.html')
+        self.response.write(template.render())
 
     def post(self):
 
