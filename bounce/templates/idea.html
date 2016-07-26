@@ -30,11 +30,18 @@
     </p>
 
     <br>
+    <div id="comment">
+      {% for comment in comments%}
+      {{comment.name}} : {{comment.date}} <br>
+      {{comment.text}} <br><br>
+      {% endfor %}
+    </div>
+  <br>
 
       <center>
       <h3>Leave a comment</h3>
 
-      <form action='/idea' method='post'>
+      <form action={{idea.url()}} method='post'>
         <textarea name='text' placeholder="What do you think?" ></textarea>
         <br>
         <button>Let 'Em Know</button>

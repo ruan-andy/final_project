@@ -22,7 +22,6 @@ class Idea(ndb.Model):
     def url(self):
         return '/idea?key=' + self.key.urlsafe()
 
-
 class Comment(ndb.Model):
     name = ndb.StringProperty()
     text = ndb.StringProperty()
@@ -82,7 +81,7 @@ class IdeaHandler(webapp2.RequestHandler):
         comment = Comment(name=name, text=text, idea_key=idea.key)
         comment.put()
         # render
-        self.redirect('/idea')
+        self.redirect(idea.url())
 
 
 class CreateHandler(webapp2.RequestHandler):
