@@ -8,12 +8,18 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
 class Idea(ndb.Model):
-    text = ndb.StringProperty()
+    title = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
-    details = ndb.StringProperty()
-    references = ndb.StringProperty()
+    text = ndb.StringProperty()
+    reference = ndb.StringProperty()
     def url(self):
         return '/idea?key=' + self.key.urlsafe()
+
+class Comment(ndb.Model):
+    name = ndb.StringProperty()
+    text = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
+    post_key = ndb.KeyProperty(kind = Post)
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
