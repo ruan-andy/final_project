@@ -20,12 +20,13 @@ class HomeHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
 
-class CreateHandler(webapp2.RequestHandler):
+class IdeaHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('create.html')
         self.response.write(template.render())
 
-class IdeaHandler(webapp2.RequestHandler):
+
+class CreateHandler(webapp2.RequestHandler):
     def get(self):
 
         ideas = Idea.query().order(Idea.idea).fetch()
@@ -48,7 +49,7 @@ class IdeaHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('idea.html')
         self.response.write(template.render(template_values))
 
-        self.redirect('/')
+        self.redirect('/idea')
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
