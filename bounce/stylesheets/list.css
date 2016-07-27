@@ -84,5 +84,11 @@ li.dropdown1 {
 }
 
 div a:hover {
-  color: #FF8562;
+  color: #333;
+}
+
+.lineSeparator2 {
+  width: 250px;
+  border: 1px white;
+  border-style: dotted;
 }
