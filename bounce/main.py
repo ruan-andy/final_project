@@ -18,6 +18,7 @@ class Tree(ndb.Model):
 class Idea(ndb.Model):
     title = ndb.StringProperty()
     text = ndb.StringProperty()
+    description = ndb.StringProperty()
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     reference = ndb.StringProperty()
@@ -67,12 +68,13 @@ class CreateHandler(webapp2.RequestHandler):
     def post(self):
         title = self.request.get('title')
         text = self.request.get('text')
+        description = self.request.get('description')
         reference = self.request.get('reference')
         name = users.get_current_user().email()
         new_tree = Tree(title=title, name=name)
         new_tree.put()
         tree_key = new_tree.key
-        new_idea = Idea(title=title, text=text, name=name, reference=reference, tree_key=tree_key)
+        new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
         self.redirect('/list')
