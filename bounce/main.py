@@ -62,8 +62,10 @@ class CreateHandler(webapp2.RequestHandler):
         #ideas = Idea.query().order(Idea.idea).fetch()
 
         #template_values = {'ideas':ideas}
+        key = self.request.get('key')
+        template_values = {'key':key}
         template = jinja_environment.get_template('createidea.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_values))
 
     def post(self):
         title = self.request.get('title')
@@ -71,13 +73,20 @@ class CreateHandler(webapp2.RequestHandler):
         description = self.request.get('description')
         reference = self.request.get('reference')
         name = users.get_current_user().email()
-        new_tree = Tree(title=title, name=name)
-        new_tree.put()
-        tree_key = new_tree.key
+        
+        urlsafe_key = self.request.get('key')
+        if urlsafe_key == "":
+            new_tree = Tree(title=title, name=name)
+            new_tree.put()
+            tree_key = new_tree.key
+        else:
+            tree_key = ndb.Key(urlsafe = urlsafe_key)
+            #tree_key = key.get()
+
         new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
-        self.redirect('/list')
+        self.redirect('/')
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -119,8 +128,14 @@ class ListHandler(webapp2.RequestHandler):
 
 class IndexHandler(webapp2.RequestHandler):
     def get(self):
-        ideas = Idea.query().fetch()
-        template_values = {'ideas': ideas}
+        #---------------------
+        urlsafe_key = self.request.get('key')
+        key = ndb.Key(urlsafe = urlsafe_key)
+        tree = key.get()
+        ideas = Idea.query(Idea.tree_key == tree.key).fetch()
+        #---------------
+        #ideas = Idea.query().fetch()
+        template_values = {'ideas': ideas, 'key':urlsafe_key}
         template = jinja_environment.get_template('index.html')
         self.response.write(template.render(template_values))
 
