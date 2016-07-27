@@ -125,7 +125,7 @@ header h1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px grey, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #906D64, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 /* Circle border color */
 }
 .cd-timeline-img img {
@@ -139,7 +139,7 @@ header h1 {
   margin-top: -12px;
 }
 .cd-timeline-img {
-  background: lightgrey;
+  background: #B7BDCD;
 /* Circle inside color */
 }
 
