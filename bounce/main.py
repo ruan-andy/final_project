@@ -36,7 +36,6 @@ class UserHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('list.html')
         self.response.write(template.render(template_values))
 
-
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -72,7 +71,7 @@ class CreateHandler(webapp2.RequestHandler):
 
         new_idea.put()
 
-        self.redirect('/')
+        self.redirect('/list')
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -109,10 +108,28 @@ class ListHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('list.html')
         self.response.write(template.render(template_values))
 
+class TreeHandler(webapp2.RequestHandler):
+    def get(self):
+        tree = Tree.query().fetch()
+        template_values = {'tree':tree}
+        template = jinja_environment.get_template('intree.html')
+        self.response.write(template.render(template_values))
+
+    def post(self):
+        title = self.request.get('title')
+        name = users.get_current_user().email()
+
+        new_tree = Tree(title=title, name=name)
+
+        new_tree.put()
+
+        self.redirect('/tree')
+
 app = webapp2.WSGIApplication([
     ('/ulist', UserHandler),
     ('/', HomeHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
-    ('/list', ListHandler)
+    ('/list', ListHandler),
+    ('/tree', TreeHandler)
 ], debug=True)
