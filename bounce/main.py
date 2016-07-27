@@ -54,36 +54,6 @@ class HomeHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
 
-
-class IdeaHandler(webapp2.RequestHandler):
-    def get(self):
-        # get info
-        urlsafe_key = self.request.get('key')
-        #logic
-        key = ndb.Key(urlsafe = urlsafe_key)
-        idea = key.get()
-        comments = Comment.query(Comment.idea_key == idea.key).order(Comment.date).fetch()
-        # render
-        template_values = {'idea': idea, 'comments': comments}
-        template = jinja_environment.get_template('idea.html')
-        self.response.write(template.render(template_values))
-
-
-    def post(self):
-        # get request
-        name = users.get_current_user().email()
-        text = self.request.get('text')
-        idea_key_urlsafe = self.request.get('key')
-        # logic
-        idea_key = ndb.Key(urlsafe=idea_key_urlsafe)
-        idea = idea_key.get()
-
-        comment = Comment(name=name, text=text, idea_key=idea.key)
-        comment.put()
-        # render
-        self.redirect(idea.url())
-
-
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         #ideas = Idea.query().order(Idea.idea).fetch()
@@ -104,6 +74,34 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect('/')
 
+
+class IdeaHandler(webapp2.RequestHandler):
+    def get(self):
+        # get info
+        urlsafe_key = self.request.get('key')
+        #logic
+        key = ndb.Key(urlsafe = urlsafe_key)
+        idea = key.get()
+        comments = Comment.query(Comment.idea_key == idea.key).order(Comment.date).fetch()
+        # render
+        template_values = {'idea': idea, 'comments': comments}
+        template = jinja_environment.get_template('idea.html')
+        self.response.write(template.render(template_values))
+
+    def post(self):
+        # get request
+        name = users.get_current_user().email()
+        text = self.request.get('text')
+        idea_key_urlsafe = self.request.get('key')
+        # logic
+        idea_key = ndb.Key(urlsafe=idea_key_urlsafe)
+        idea = idea_key.get()
+
+        comment = Comment(name=name, text=text, idea_key=idea.key)
+        comment.put()
+        # render
+        self.redirect(idea.url())
+
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         ideas = Idea.query().fetch()
@@ -111,11 +109,10 @@ class ListHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('list.html')
         self.response.write(template.render(template_values))
 
-
 app = webapp2.WSGIApplication([
+    ('/ulist', UserHandler),
     ('/', HomeHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
-    ('/list', ListHandler),
-    ('/ulist', UserHandler)
+    ('/list', ListHandler)
 ], debug=True)
