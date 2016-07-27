@@ -37,6 +37,20 @@ h3 {
   border-radius: 30%;
 }
 
+#oddStep:hover{
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
+#evenStep:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
 p {
   font-family: "andale mono";
   font-style: normal;
@@ -57,8 +71,8 @@ p {
 
 .right {
   float: right;
-  margin-left: 650px;
-  margin-right: 275px;
+  margin-left: 550px;
+  margin-right: 375px;
 }
 
 section .clear {
