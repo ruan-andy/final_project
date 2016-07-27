@@ -15,7 +15,7 @@
 
 			<div class="cd-timeline-content">
 				<h2>{{ idea.title}}</h2>
-				<span class="cd-date">Jan 14</span>
+				<span class="cd-date">{{idea.date.strftime('%Y-%m-%d')}}</span>
 			</div>
 		</div>
     {% endfor %}
