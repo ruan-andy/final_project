@@ -13,7 +13,7 @@ class Tree(ndb.Model):
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     def url(self):
-        return '/tree?key=' + self.key.urlsafe()
+        return '/index?key=' + self.key.urlsafe()
 
 class Idea(ndb.Model):
     title = ndb.StringProperty()
@@ -107,9 +107,19 @@ class IdeaHandler(webapp2.RequestHandler):
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
+        urlsafe_key = self.request.get('key')
+        key = ndb.Key(urlsafe = urlsafe_key)
+        tree = key.get()
+        ideas = Idea.query(Idea.tree_key == tree.key).fetch()
+        template_values = {'ideas': ideas}
+        template = jinja_environment.get_template('index.html')
+        self.response.write(template.render(template_values))
+
+class IndexHandler(webapp2.RequestHandler):
+    def get(self):
         ideas = Idea.query().fetch()
         template_values = {'ideas': ideas}
-        template = jinja_environment.get_template('list.html')
+        template = jinja_environment.get_template('index.html')
         self.response.write(template.render(template_values))
 
 class TreeHandler(webapp2.RequestHandler):
@@ -135,5 +145,6 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
-    ('/treelist', TreeHandler)
+    ('/treelist', TreeHandler),
+    ('/index', IndexHandler)
 ], debug=True)
