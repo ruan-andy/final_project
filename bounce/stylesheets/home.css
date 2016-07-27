@@ -17,6 +17,25 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-family: "andale mono";
+  font-style: normal;
+  color: white;
+  border: 1px solid white;
+}
+
+#oddStep {
+  text-align: center;
+  padding: 50px;
+  border-radius: 30%;
+}
+
+#evenStep {
+  text-align: center;
+  padding: 50px;
+  border-radius: 30%;
+}
+
 p {
   font-family: "andale mono";
   font-style: normal;
@@ -24,6 +43,25 @@ p {
   text-align: center;
   margin-left: 250px;
   margin-right: 250px;
+}
+
+.directions div {
+
+}
+
+.left {
+  float: left;
+  margin-left: 375px;
+}
+
+.right {
+  float: right;
+  margin-left: 650px;
+  margin-right: 275px;
+}
+
+section .clear {
+  clear: both;
 }
 
 ul {
