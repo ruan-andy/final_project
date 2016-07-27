@@ -29,7 +29,7 @@
     </p>
 
     <p>
-      Thought up by: {{idea.name}} on {{idea.date}}
+      Thought up by: {{idea.name}} on {{idea.date.strftime('%Y-%m-%d')}}
     </p>
 
     <div class="lineSeparator"></div>
@@ -50,7 +50,7 @@
                     {{comment.name}}:
                     <br>
                     {{comment.text}}
-                    <div class='date'>({{comment.date}})</date>
+                    <div class='date'>({{comment.date.strftime('%Y-%m-%d')}})</date>
                     <br>
                     <br>
                   </div>
