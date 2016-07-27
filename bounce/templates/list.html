@@ -15,12 +15,13 @@
 
     {% include 'taskbar.html' %}
 
-
     <br>
 
     {% for idea in ideas %}
       <center>
-        <a class="listOfIdeas" href="{{idea.url()}}">{{idea.title}}</a>
+        <div>
+          <a class="listOfIdeas" href="{{idea.url()}}">{{idea.title}}</a>
+        </div>
       </center>
     {% endfor %}
 
