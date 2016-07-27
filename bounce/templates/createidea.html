@@ -14,28 +14,34 @@
     </center>
 
     {% include 'taskbar.html' %}
-    
+
+    <center>
+    <h2>New Idea</h2>
+    </center>
+
+    <br>
     <br>
     <br>
 
     <form  method="post" action="/create">
       <center>
         <div class="block">
-          <textarea name="title" placeholder="Title goes here"></textarea>
+          <textarea name="title" placeholder="What's it called?"></textarea>
         </div>
       </center>
       <br>
       <br>
       <div class="block1">
-      <textarea name="text" placeholder="What is your idea?"></textarea>
+      <textarea name="text" placeholder="Tell us more!"></textarea>
       </div>
       <div class="block2">
-      <textarea name="reference" placeholder="References go here"></textarea>
+      <textarea name="reference" placeholder="References or questions go here"></textarea>
       <br>
       <br>
       <button>Post it</button>
       </div>
       <div class="clear"></div>
+
     </form>
 
   </body>
