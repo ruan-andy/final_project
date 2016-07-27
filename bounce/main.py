@@ -12,6 +12,8 @@ class Tree(ndb.Model):
     title = ndb.StringProperty()
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
+    def url(self):
+        return '/tree?key=' + self.key.urlsafe()
 
 class Idea(ndb.Model):
     title = ndb.StringProperty()
@@ -19,6 +21,7 @@ class Idea(ndb.Model):
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     reference = ndb.StringProperty()
+    tree_key = ndb.KeyProperty(kind=Tree)
     def url(self):
         return '/idea?key=' + self.key.urlsafe()
 
@@ -66,9 +69,10 @@ class CreateHandler(webapp2.RequestHandler):
         text = self.request.get('text')
         reference = self.request.get('reference')
         name = users.get_current_user().email()
-
-        new_idea = Idea(title=title, text=text, name=name, reference=reference)
-
+        new_tree = Tree(title=title, name=name)
+        new_tree.put()
+        tree_key = new_tree.key
+        new_idea = Idea(title=title, text=text, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
         self.redirect('/list')
