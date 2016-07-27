@@ -10,9 +10,17 @@ h1 {
   margin: 20px;
 }
 
+.lineSeparator {
+  width: 500px;
+  border: 1px solid white;
+}
+
 h2 {
   font-family: "andale mono";
+  font-style: normal;
+  font-size: 100px;
   color: white;
+  margin: 20px;
 }
 
 ul {
@@ -70,7 +78,7 @@ li.dropdown1 {
 
 .listOfIdeas {
   font-family: "andale mono";
-  font-size: 28px;
+  font-size: 40px;
   color: white;
   text-decoration: none;
 }
