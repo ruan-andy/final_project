@@ -18,6 +18,12 @@ h2 {
   text-align: center;
 }
 
+.lineSeparator {
+  width: 500px;
+  border: 1px white;
+  border-style: dashed;
+}
+
 h3 {
   font-family: "andale mono";
   font-style: normal;
