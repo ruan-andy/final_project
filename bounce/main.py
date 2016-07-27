@@ -112,7 +112,7 @@ class TreeHandler(webapp2.RequestHandler):
     def get(self):
         tree = Tree.query().fetch()
         template_values = {'tree':tree}
-        template = jinja_environment.get_template('intree.html')
+        template = jinja_environment.get_template('index.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -131,5 +131,5 @@ app = webapp2.WSGIApplication([
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
-    ('/tree', TreeHandler)
+    ('/index', TreeHandler)
 ], debug=True)
