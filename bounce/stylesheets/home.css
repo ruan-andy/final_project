@@ -1,3 +1,8 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background-image: url("https://wallpaperscraft.com/image/background_faded_stains_light_47125_3840x2400.jpg");
   background-color: #434738;
@@ -5,7 +10,6 @@ body {
 
 h1 {
   font-family: "andale mono";
-  font-style: normal;
   font-size: 200px;
   color: white;
   margin: 20px;
@@ -13,7 +17,6 @@ h1 {
 
 h2 {
   font-family: "andale mono";
-  font-style: normal;
   color: white;
   text-align: center;
 }
@@ -26,7 +29,6 @@ h2 {
 
 h3 {
   font-family: "andale mono";
-  font-style: normal;
   color: white;
   border: 1px solid white;
 }
