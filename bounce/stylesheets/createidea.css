@@ -10,6 +10,19 @@ h1 {
   margin: 20px;
 }
 
+.lineSeparator {
+  width: 500px;
+  border: 1px solid white;
+}
+
+h2 {
+  font-family: "andale mono";
+  font-style: normal;
+  font-size: 100px;
+  color: white;
+  margin: 20px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -109,13 +122,18 @@ button {
 
 .block1 {
   float: left;
-  margin-left: 250px;
-  margin-right: 100px;
+  border-style: solid;
+  border-color: transparent;;
+  padding-left: 225px;
+  padding-right: 50px;
 }
 
 .block2 {
   float:left;
-  margin-left:;
+  border-style: solid;
+  border-color: transparent;;
+  padding-right: 225px;
+  padding-left: 50px;
 }
 
 div .clear {
