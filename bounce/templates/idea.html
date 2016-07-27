@@ -19,17 +19,46 @@
     <br>
 
     <center>
+
+    <div class="lineSeparator"></div>
+
       <h2>{{idea.title}}</h2>
-    </center>
-    <p>
-      {{idea.date}}
-      <br>
-      {{idea.name}}
-      <br>
+
+    <p class="featuredIdea">
       {{idea.text}}
     </p>
 
+    <p>
+      Thought up by: {{idea.name}} on {{idea.date}}
+    </p>
+
+    <div class="lineSeparator"></div>
+
+    </center>
+
+    <br>
+    <br>
+
       <center>
+
+        {% for comment in comments %}
+          <div class="dialogbox">
+            <div class="body">
+              <span class="tip tip-right"></span>
+              <div class="message">
+                  <article>
+                    {{comment.name}}:
+                    <br>
+                    {{comment.text}}
+                    <div class='date'>({{comment.date}})</date>
+                    <br>
+                    <br>
+                  </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
       <h3>Leave a comment</h3>
 
       <form action={{idea.url()}} method='post'>
@@ -39,24 +68,21 @@
         <br>
         <br>
       </div>
-      {% for comment in comments %}
-        <div class="dialogbox">
-          <div class="body">
-            <span class="tip tip-right"></span>
-            <div class="message">
-                <article>
-                  {{comment.name}}:
-                  <br>
-                  {{comment.text}}
-                  <div class='date'>({{comment.date}})</date>
-                  <br>
-                  <br>
-                </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+
       </center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <img src="http://www.clker.com/cliparts/2/0/0/9/1197089211475574592Chrisdesign_Tree_silhouettes_5.svg.hi.png" width="100">
+
 
   </body>
 </html>

@@ -10,10 +10,17 @@ h1 {
   margin: 20px;
 }
 
+.lineSeparator {
+  width: 500px;
+  border: 1px solid white;
+}
+
 h2 {
   font-family: "andale mono";
-  font-size: 40px;
+  font-style: normal;
+  font-size: 80px;
   color: white;
+  margin: 20px;
 }
 
 h3 {
@@ -25,8 +32,14 @@ h3 {
 p {
   text-align: center;
   font-family: "andale mono";
-  font-size: 20px;
+  font-size: 15px;
   color: #396873;
+}
+
+.featuredIdea {
+  font-family: "andale mono";
+  font-size: 30px;
+  color: white;  
 }
 
 ul {
@@ -133,7 +146,7 @@ button {
   width: 300px;
   margin: 20px 10px;
   padding: 5px;
-  background-color: #C5FFCE;
+  background-color: #9ECCA5;
   border-radius: 3px;
   border: 5px solid #E5FFA1;
 }
