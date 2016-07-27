@@ -18,6 +18,12 @@ h2 {
   text-align: center;
 }
 
+.lineSeparator {
+  width: 500px;
+  border: 1px white;
+  border-style: dashed;
+}
+
 h3 {
   font-family: "andale mono";
   font-style: normal;
@@ -35,6 +41,20 @@ h3 {
   text-align: center;
   padding: 50px;
   border-radius: 30%;
+}
+
+#oddStep:hover{
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
+#evenStep:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
 }
 
 p {
@@ -57,8 +77,8 @@ p {
 
 .right {
   float: right;
-  margin-left: 650px;
-  margin-right: 275px;
+  margin-left: 550px;
+  margin-right: 375px;
 }
 
 section .clear {
