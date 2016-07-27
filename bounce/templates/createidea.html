@@ -16,8 +16,7 @@
     {% include 'taskbar.html' %}
 
     <br>
-      <input hidden name="key" type="text" value = "{{key}}">
-    <br>  
+    <br>
 
     <center>
       <div class="lineSeparator"></div>
@@ -30,6 +29,7 @@
     <br>
 
     <form  method="post" action="/create">
+      <input hidden name="key" type="text" value = "{{key}}">
       <center>
         <div class="block">
           <textarea name="title" placeholder="What's it called?"></textarea>
