@@ -1,0 +1,40 @@
+h1 {
+  font-family: "andale mono";
+  font-style: normal;
+  font-size: 200px;
+  color: white;
+  margin: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li .clear {
+
+}
+
+li a, .home, .create, .dropbtn1 {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "andale mono";
+}
+
+li a:hover, .dropdown1:hover .dropbtn1 {
+  background-color: #FF8562;
+}
+
+li.dropdown1 {
+  display: inline-block;
+}

@@ -7,9 +7,18 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="stylesheets/reset.css">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
     <script src="js/animate.js"></script>
   </head>
   <body>
+
+    <center>
+      <h1>
+        BRANCH
+      </h1>
+    </center>
+
+    {% include 'taskbar.html' %}
 
     <section id="cd-timeline" class="cd-container">
       {% for idea in ideas %}
