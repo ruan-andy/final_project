@@ -114,7 +114,7 @@ class ListHandler(webapp2.RequestHandler):
         tree = key.get()
         ideas = Idea.query(Idea.tree_key == tree.key).fetch()
         template_values = {'ideas': ideas}
-        template = jinja_environment.get_template('index.html')
+        template = jinja_environment.get_template('list.html')
         self.response.write(template.render(template_values))
 
 class IndexHandler(webapp2.RequestHandler):
