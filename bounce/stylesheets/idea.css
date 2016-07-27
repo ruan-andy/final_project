@@ -20,7 +20,6 @@ h2 {
   font-style: normal;
   font-size: 80px;
   color: white;
-  margin: 20px;
 }
 
 h3 {
@@ -39,7 +38,9 @@ p {
 .featuredIdea {
   font-family: "andale mono";
   font-size: 30px;
-  color: white;  
+  color: white;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 ul {
