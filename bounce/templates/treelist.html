@@ -20,18 +20,19 @@
     <center>
       <div class="lineSeparator"></div>
 
-      <h2>Pick An Idea</h2>
+      <h2>Pick A Tree</h2>
 
       <div class="lineSeparator"></div>
     </center>
 
     <br>
 
-    {% for idea in ideas %}
+    {% for tree in trees %}
       <center>
         <div>
 
-          <a class="listOfIdeas" href="{{idea.url()}}">{{idea.title}}</a>
+          <!-- <a class="listOfIdeas" href="{{tree.url()}}">{{idea.title}}</a> -->
+          {{tree.title}}
 
           <div class="lineSeparator2"></div>
 
