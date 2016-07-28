@@ -48,14 +48,14 @@ h3 {
 #oddStep:hover{
   -webkit-transform: scale(1.25);
   -moz-transform: scale(1.25);
-  position: relative;
+
   z-index: 5;
 }
 
 #evenStep:hover {
   -webkit-transform: scale(1.25);
   -moz-transform: scale(1.25);
-  position: relative;
+
   z-index: 5;
 }
 
