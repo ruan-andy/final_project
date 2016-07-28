@@ -7,7 +7,9 @@ body {
   /*background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/weather.png");*/
   /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/logo_x_pattern.png');*/
   /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png');*/
-  background-image: url("http://www.aiesec.org.es/wp-content/uploads/2015/10/blogpost.jpg");
+  /*background-image: url("http://www.aiesec.org.es/wp-content/uploads/2015/10/blogpost.jpg");*/
+  /*background-image: url("https://s-media-cache-ak0.pinimg.com/600x315/75/ef/71/75ef71ab3e37eab9f5eaaf37bb8c38a2.jpg");*/
+  background-image: url('http://images.wisegeek.com/soil-with-plant-sprout.jpg');
   background-size: cover;
   background-color: #434738;
 }
@@ -15,37 +17,28 @@ body {
 h3 {
   font-family: "andale mono";
   color: white;
-  font-size: 30px;
+  font-size: 50px;
+  margin-top: 20px;
 }
 
 .myButton {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
-	background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
-	background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
-	background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
-	background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
-	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
-	background-color:#f24537;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family: "andale mono";
-	font-size:28px;
-	padding:6px 12px;
-	text-decoration:none;
+  font-family: "andale mono";
+  font-size: 30px;
+  color: white;
+  border: 1px white solid;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
 }
+
 .myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
-	background:-moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
-	background:-webkit-linear-gradient(top, #c62d1f 5%, #f24537 100%);
-	background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
-	background:-ms-linear-gradient(top, #c62d1f 5%, #f24537 100%);
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
-	background-color:#c62d1f;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
+  background-color: #9AD4B7;
+  opacity: 0.7;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: ease-out, ease-out;
+  transition-delay: initial, initial;
 }
