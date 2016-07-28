@@ -1,0 +1,51 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /*background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/weather.png");*/
+  /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/logo_x_pattern.png');*/
+  /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png');*/
+  background-image: url("http://www.aiesec.org.es/wp-content/uploads/2015/10/blogpost.jpg");
+  background-size: cover;
+  background-color: #434738;
+}
+
+h3 {
+  font-family: "andale mono";
+  color: white;
+  font-size: 30px;
+}
+
+.myButton {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
+	background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+	background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+	background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+	background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
+	background-color:#f24537;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: "andale mono";
+	font-size:28px;
+	padding:6px 12px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
+	background:-moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+	background:-webkit-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+	background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+	background:-ms-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+	background-color:#c62d1f;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

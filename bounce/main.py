@@ -40,6 +40,11 @@ class UserHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('list.html')
         self.response.write(template.render(template_values))
 
+class SignInHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('signin.html')
+        self.response.write(template.render())
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -73,7 +78,7 @@ class CreateHandler(webapp2.RequestHandler):
         description = self.request.get('description')
         reference = self.request.get('reference')
         name = users.get_current_user().email()
-        
+
         urlsafe_key = self.request.get('key')
         if urlsafe_key == "":
             new_tree = Tree(title=title, name=name)
@@ -86,7 +91,7 @@ class CreateHandler(webapp2.RequestHandler):
         new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
-        self.redirect('/')
+        self.redirect('/treelist')
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -156,12 +161,45 @@ class TreeHandler(webapp2.RequestHandler):
     #
     #     self.redirect('/tree')
 
+class UpdateHandler(webapp2.RequestHandler):
+    def get(self):
+        #ideas = Idea.query().order(Idea.idea).fetch()
+
+        #template_values = {'ideas':ideas}
+        key = self.request.get('key')
+        template_values = {'key':key}
+        template = jinja_environment.get_template('update.html')
+        self.response.write(template.render(template_values))
+
+    def post(self):
+        title = self.request.get('title')
+        text = self.request.get('text')
+        description = self.request.get('description')
+        reference = self.request.get('reference')
+        name = users.get_current_user().email()
+
+        urlsafe_key = self.request.get('key')
+        if urlsafe_key == "":
+            new_tree = Tree(title=title, name=name)
+            new_tree.put()
+            tree_key = new_tree.key
+        else:
+            tree_key = ndb.Key(urlsafe = urlsafe_key)
+            #tree_key = key.get()
+
+        new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
+        new_idea.put()
+
+        self.redirect('/treelist')
+
 app = webapp2.WSGIApplication([
     ('/ulist', UserHandler),
+    ('/signin', SignInHandler),
     ('/', HomeHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
     ('/treelist', TreeHandler),
-    ('/index', IndexHandler)
+    ('/index', IndexHandler),
+    ('/update', UpdateHandler)
 ], debug=True)

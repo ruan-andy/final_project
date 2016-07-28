@@ -48,14 +48,14 @@ h3 {
 #oddStep:hover{
   -webkit-transform: scale(1.25);
   -moz-transform: scale(1.25);
-  position: relative;
+
   z-index: 5;
 }
 
 #evenStep:hover {
   -webkit-transform: scale(1.25);
   -moz-transform: scale(1.25);
-  position: relative;
+
   z-index: 5;
 }
 
@@ -79,8 +79,8 @@ p {
 
 .right {
   float: right;
-  margin-left: 550px;
-  margin-right: 375px;
+  margin-left: 450px;
+  margin-right: 475px;
 }
 
 section .clear {
