@@ -28,27 +28,7 @@
 
     <br>
 
-    <form  method="post" action="/create">
-      <input hidden name="key" type="text" value = "{{key}}">
-      <center>
-        <div class="block">
-          <textarea name="title" placeholder="What's it called?"></textarea>
-          <br>
-          <br>
-          <textarea name="description" placeholder="Short Description"></textarea>
-        </div>
-      </center>
-
-      <br>
-      <br>
-      <div class="block1">
-        <textarea name="text" placeholder="Tell us more!"></textarea>
-      </div>
-      <div class="block2">
-        <textarea name="reference" placeholder="References or questions go here"></textarea>
-      <br>
-      <br>
-      <button>Post it</button>
+    {% include 'form.html' %}
 
       <br>
       <br>
