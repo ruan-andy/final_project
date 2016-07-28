@@ -21,6 +21,12 @@ h1 {
   border: 1px solid white;
 }
 
+.lineSeparator2 {
+  width: 300px;
+  border: 1px white;
+  border-style: dashed;
+}
+
 h2 {
   font-family: "andale mono";
   font-style: normal;
@@ -44,6 +50,14 @@ p {
 .featuredIdea {
   font-family: "andale mono";
   font-size: 30px;
+  color: white;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.featuredReference {
+  font-family: "andale mono";
+  font-size: 25px;
   color: white;
   padding-left: 200px;
   padding-right: 200px;
