@@ -1,0 +1,14 @@
+body {
+  /*background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/weather.png");*/
+  /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/logo_x_pattern.png');*/
+  /*background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png');*/
+  background-image: url('http://www.aiesec.org.es/wp-content/uploads/2015/10/blogpost.jpg');
+  background-size: cover;
+  background-color: #434738;
+}
+
+h3 {
+  font-family: "andale mono";
+  color: white;
+  font-size: 30px;
+}
