@@ -86,7 +86,7 @@ class CreateHandler(webapp2.RequestHandler):
         new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
-        self.redirect('/list')
+        self.redirect('/treelist')
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -194,5 +194,5 @@ app = webapp2.WSGIApplication([
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
     ('/treelist', TreeHandler),
-    ('/index', IndexHandler)
+    ('/index', IndexHandler),
 ], debug=True)
