@@ -28,7 +28,43 @@
 
     <br>
 
-    {% include 'form.html' %}
+    <form  method="post" action="/create">
+      <input hidden name="key" type="text" value = "{{key}}">
+      <center>
+        <div class="block">
+          <textarea name="title" placeholder="What's it called?"></textarea>
+          <br>
+          <br>
+          <textarea name="description" placeholder="Short Description"></textarea>
+        </div>
+      </center>
+
+      <br>
+      <br>
+      <div class="block1">
+        <textarea name="text" placeholder="Tell us more!"></textarea>
+      </div>
+      <div class="block2">
+        <textarea name="reference" placeholder="References or questions go here"></textarea>
+      <br>
+      <br>
+      </div>
+
+      <div class="clear"></div>
+
+      <center>
+        <button>Plant</button>
+      </center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
     <img src="http://www.clker.com/cliparts/2/0/0/9/1197089211475574592Chrisdesign_Tree_silhouettes_5.svg.hi.png" width="100">
 

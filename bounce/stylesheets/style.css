@@ -239,14 +239,22 @@ header h1 {
   color: #303e49;
 /* Textbox heading color */
 }
-.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content a, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
   font-size: 13px;
   font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.cd-timeline-content h2:hover {
+  color: #FF8562;
 }
 
 .cd-timeline-content p {
   margin: 1em 0;
   line-height: 1.6;
+  font-family: "andale mono";
+  font-size: 12px;
+  color: #333;
 }
 
 .cd-timeline-content::before {
