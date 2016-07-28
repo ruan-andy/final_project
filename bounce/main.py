@@ -91,7 +91,7 @@ class CreateHandler(webapp2.RequestHandler):
         new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
 
-        self.redirect('/treelist')
+        self.redirect(tree_key.get().url())
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -137,7 +137,8 @@ class IndexHandler(webapp2.RequestHandler):
         urlsafe_key = self.request.get('key')
         key = ndb.Key(urlsafe = urlsafe_key)
         tree = key.get()
-        ideas = Idea.query(Idea.tree_key == tree.key).fetch()
+        tmp = Idea.query(Idea.tree_key == tree.key).fetch()
+        ideas = sorted(tmp, key=lambda k: k.date )
         #---------------
         #ideas = Idea.query().fetch()
         template_values = {'ideas': ideas, 'key':urlsafe_key}
