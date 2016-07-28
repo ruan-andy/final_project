@@ -93,12 +93,12 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect(tree_key.get().url())
 
-class SearchHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('search.html')
-        self.response.write(template.render(template_values))
-
-    def post(self):
+# class SearchHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_environment.get_template('search.html')
+#         self.response.write(template.render(template_values))
+#
+#     def post(self):
 
 
 class IdeaHandler(webapp2.RequestHandler):
@@ -113,6 +113,7 @@ class IdeaHandler(webapp2.RequestHandler):
         template_values = {'idea': idea, 'comments': comments}
         template = jinja_environment.get_template('idea.html')
         self.response.write(template.render(template_values))
+
 
     def post(self):
         # get request
