@@ -156,7 +156,7 @@ class TreeHandler(webapp2.RequestHandler):
     #
     #     self.redirect('/tree')
 
-class CreateHandler(webapp2.RequestHandler):
+class UpdateHandler(webapp2.RequestHandler):
     def get(self):
         #ideas = Idea.query().order(Idea.idea).fetch()
 
@@ -195,4 +195,5 @@ app = webapp2.WSGIApplication([
     ('/list', ListHandler),
     ('/treelist', TreeHandler),
     ('/index', IndexHandler),
+    ('/update', UpdateHandler)
 ], debug=True)
