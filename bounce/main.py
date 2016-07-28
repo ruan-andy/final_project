@@ -35,9 +35,9 @@ class Comment(ndb.Model):
 class UserHandler(webapp2.RequestHandler):
     def get(self):
         name = users.get_current_user().email()
-        ideas = Idea.query(Idea.name == name).fetch()
-        template_values = {'ideas': ideas}
-        template = jinja_environment.get_template('list.html')
+        trees = Tree.query(Tree.name == name).fetch()
+        template_values = {'trees': trees}
+        template = jinja_environment.get_template('treelist.html')
         self.response.write(template.render(template_values))
 
 class SignInHandler(webapp2.RequestHandler):
@@ -147,7 +147,7 @@ class IndexHandler(webapp2.RequestHandler):
 
 class TreeHandler(webapp2.RequestHandler):
     def get(self):
-        trees = Tree.query().fetch()
+        trees = Tree.query().order(-Tree.date).fetch()
         template_values = {'trees':trees}
         template = jinja_environment.get_template('treelist.html')
         self.response.write(template.render(template_values))
@@ -195,12 +195,12 @@ class UpdateHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/ulist', UserHandler),
-    ('/signin', HomeHandler),
     ('/', SignInHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
     ('/treelist', TreeHandler),
     ('/index', IndexHandler),
-    ('/update', UpdateHandler)
+    ('/update', UpdateHandler),
+    ('/home', HomeHandler)
 ], debug=True)
