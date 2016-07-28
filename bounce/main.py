@@ -93,6 +93,13 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect(tree_key.get().url())
 
+class SearchHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('search.html')
+        self.response.write(template.render(template_values))
+
+    def post(self):
+
 
 class IdeaHandler(webapp2.RequestHandler):
     def get(self):
@@ -190,17 +197,12 @@ class UpdateHandler(webapp2.RequestHandler):
 
         new_idea = Idea(title=title, text=text, description=description, name=name, reference=reference, tree_key=tree_key)
         new_idea.put()
-
         self.redirect('/treelist')
+
 
 app = webapp2.WSGIApplication([
     ('/ulist', UserHandler),
-<<<<<<< HEAD
-    ('/signin', SignInHandler),
-    ('/', HomeHandler),
-=======
     ('/', SignInHandler),
->>>>>>> 2bd92bab844c261e4e0befead5ee406501744c28
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
