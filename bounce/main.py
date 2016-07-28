@@ -195,8 +195,8 @@ class UpdateHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/ulist', UserHandler),
-    ('/signin', SignInHandler),
-    ('/', HomeHandler),
+    ('/signin', HomeHandler),
+    ('/', SignInHandler),
     ('/create', CreateHandler),
     ('/idea', IdeaHandler),
     ('/list', ListHandler),
