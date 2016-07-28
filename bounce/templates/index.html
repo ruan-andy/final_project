@@ -18,14 +18,15 @@
       </h1>
     </center>
 
-    <ul>
+{% include 'taskbar.html' %}
+    <!-- <ul>
       <li><a class="home" href="/">Home</a></li>
       <li><a class="create" href="/create">Create A Tree</a></li>
       <li><a href="/ulist" class="dropbtn1">Branches</a></li>
       <li><a class="tree" href="/treelist">Trees</a></li>
       <li><a class="update" href="/update?key={{key}}">Update</a></li>
       <li class="clear"></li>
-      </ul>
+      </ul> -->
 
     <section id="cd-timeline" class="cd-container">
       {% for idea in ideas %}

@@ -16,6 +16,9 @@ handlers:
   static_dir: stylesheets
 - url: /js
   static_dir: js
+- url: /
+  script: main.app
+  login: optional
 
 - url: .*
   script: main.app
