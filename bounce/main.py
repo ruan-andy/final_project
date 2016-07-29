@@ -106,9 +106,22 @@ class SearchHandler(webapp2.RequestHandler):
 
 class SearchTreesHandler(webapp2.RequestHandler):
     def get(self):
+        #search = self.request.get('search')
+        # search = search.replace("_", " ")
+        #trees = Tree.query().order(-Tree.date).fetch()
+        # template_values = {'trees':trees}
+        ideas = Idea.query().order(-Tree.date).fetch()
         search = self.request.get('search')
         search = search.replace("_", " ")
-        trees = Tree.query(search in Tree.title).order(-Tree.date).fetch()
+        tlist = Tree.query().order(-Tree.date).fetch()
+        trees = []
+        for idea in ideas:
+            if (search.lower() in idea.title.lower() or search.lower() in idea.description.lower() or search.lower() in idea.text.lower()) and idea.tree_key.get() not in trees:
+                trees.append(idea.tree_key.get())
+        # for tree in tlist:
+        #     if search.lower() in tree.title.lower():
+        #          trees.append(tree)
+
         template_values = {'trees':trees}
         template = jinja_environment.get_template('treelist.html')
         self.response.write(template.render(template_values))
