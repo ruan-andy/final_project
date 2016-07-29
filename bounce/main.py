@@ -96,7 +96,7 @@ class CreateHandler(webapp2.RequestHandler):
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('search.html')
-        self.response.write(template.render(template_values))
+        self.response.write(template.render())
 
     def post(self):
         search = self.request.get('search')
@@ -105,7 +105,7 @@ class SearchHandler(webapp2.RequestHandler):
 
 
 class SearchTreesHandler(webapp2.RequestHandler):
-    def get(self)
+    def get(self):
         search = self.request.get('search')
         search = search.replace("_", " ")
         trees = Tree.query(search in Tree.title).order(-Tree.date).fetch()
@@ -223,5 +223,6 @@ app = webapp2.WSGIApplication([
     ('/index', IndexHandler),
     ('/update', UpdateHandler),
     ('/home', HomeHandler),
-    ('/')
+    ('/searchtree', SearchTreesHandler),
+    ('/search', SearchHandler)
 ], debug=True)
