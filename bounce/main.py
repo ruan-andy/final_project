@@ -93,13 +93,25 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.redirect(tree_key.get().url())
 
-# class SearchHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('search.html')
-#         self.response.write(template.render(template_values))
-#
-#     def post(self):
+class SearchHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('search.html')
+        self.response.write(template.render(template_values))
 
+    def post(self):
+        search = self.request.get('search')
+        search = search.strip().replace(" ", "_")
+        self.redirect("/searchtree?search=" + search)
+
+
+class SearchTreesHandler(webapp2.RequestHandler):
+    def get(self)
+        search = self.request.get('search')
+        search = search.replace("_", " ")
+        trees = Tree.query(search in Tree.title).order(-Tree.date).fetch()
+        template_values = {'trees':trees}
+        template = jinja_environment.get_template('treelist.html')
+        self.response.write(template.render(template_values))
 
 class IdeaHandler(webapp2.RequestHandler):
     def get(self):
@@ -210,5 +222,6 @@ app = webapp2.WSGIApplication([
     ('/treelist', TreeHandler),
     ('/index', IndexHandler),
     ('/update', UpdateHandler),
-    ('/home', HomeHandler)
+    ('/home', HomeHandler),
+    ('/')
 ], debug=True)
