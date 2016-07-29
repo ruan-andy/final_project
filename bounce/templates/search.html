@@ -3,16 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Search Page</title>
+    <link rel="stylesheet" href="stylesheets/search.css">
   </head>
   <body>
 
-    <form  method="post" action="/search">
-    <div class="block">
-      <textarea name="search" placeholder="Search"></textarea>
-    </div>
-    <button>Search</button>
-  </form>
-  </center>
+    <center>
+      <h1>
+        BRANCH
+      </h1>
+    </center>
+
+    {% include 'taskbar.html' %}
+
+    <br>
+    <br>
+
+    <center>
+      <form  method="post" action="/search">
+        <div class="block">
+          <textarea name="search" placeholder="Search"></textarea>
+        </div>
+        <button>Search</button>
+      </form>
+    </center>
+
+    <br>
+    <br>
+
+    <center>
+      <div class="lineSeperator"></div>
+    </center> 
 
   </body>
 </html>
